@@ -9,7 +9,6 @@
     },
     "array-type": false,
     "arrow-return-shorthand": true,
-    "curly": true,
     "deprecation": {
       "severity": "warning"
     },
@@ -25,7 +24,6 @@
     "component-selector": [
       true,
       "element",
-      "app",
       "kebab-case"
     ],
     "eofline": true,
@@ -76,10 +74,6 @@
       true,
       "as-needed"
     ],
-    "quotemark": [
-      true,
-      "single"
-    ],
     "semicolon": {
       "options": [
         "always"
@@ -101,7 +95,7 @@
     "typedef-whitespace": {
       "options": [
         {
-          "call-signature": "nospace",
+          // "call-signature": "nospace",
           "index-signature": "nospace",
           "parameter": "nospace",
           "property-declaration": "nospace",

@@ -1,0 +1,43 @@
+<div>
+  <div>
+    <h1 style="text-align: center;">Select initial state</h1>
+  </div>
+
+  <div style="max-width: 500px; margin: auto; height: 80vh;">
+    <div style="width: 50%; float: left; height: 50vh;">
+      <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="formation">
+        <mat-radio-button class="example-radio-button" *ngFor="let form of formations" [value]="form">
+          {{ form }}
+        </mat-radio-button>
+        <mat-error *ngIf="error && error.radio">{{ error.radio }}</mat-error>
+      </mat-radio-group>
+    </div>
+
+    <div style="width: 50%; float: right; height: 50vh;">
+      <div style="height: 20vh;">
+        <h5 style="margin-bottom: 0;">Height</h5>
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" [(ngModel)]="height">
+        </mat-form-field>
+        <mat-error *ngIf="error && error.height">{{ error.height }}</mat-error>
+      </div>
+
+      <div style="height: 20vh;">
+        <h5 style="margin-bottom: 0;">Width</h5>
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" [(ngModel)]="width">
+        </mat-form-field>
+        <mat-error *ngIf="error && error.width">{{ error.width }}</mat-error>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <button style="margin-top: 32px;"
+              mat-raised-button
+              (click)="checkFormation()">Done</button>
+    </div>
+  </div>
+</div>
