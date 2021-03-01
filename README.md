@@ -4,13 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Initial setup
 
-First, make sure you have the correct Angular CLI installed. Type `ng version` to check your version, v10 is required.
-<br>
-Second, make sure you have NPM installed. Type `npm -v` to check your version, v12 is required
-<br>
-Third, run `npm install` to install all dependencies. If everything works, you are ready to set up your development server.
-<br>
-If you still run into problems, run `ng update`, then `npm update` to make sure your versions are up-to-date
+Run `mvn clean install` to build application.
 
 ## Development server
 
