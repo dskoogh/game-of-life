@@ -14,7 +14,7 @@ export class StateSelectorComponent implements OnInit {
   formation: string;
   height = 50;
   width = 50;
-  readonly threshold = 250;
+  private readonly threshold = 250;
   error: any = {};
 
   constructor() { }
@@ -25,9 +25,9 @@ export class StateSelectorComponent implements OnInit {
 
   checkFormation(): void {
     if (!this.formation) {
-      this.error.radio = "Please select formation";
+      this.error.formation = "Please select formation";
     } else {
-      this.error.radio = undefined;
+      this.error.formation = undefined;
     }
 
     if (!this.height || this.height > this.threshold) {
@@ -42,7 +42,7 @@ export class StateSelectorComponent implements OnInit {
       this.error.width = undefined;
     }
 
-    if (!this.error || (!this.error.radio && !this.error.height && !this.error.width)) {
+    if (!this.error || (!this.error.formation && !this.error.height && !this.error.width)) {
       this.confirmInput();
     }
   }

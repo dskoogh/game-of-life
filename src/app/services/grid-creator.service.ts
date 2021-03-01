@@ -12,13 +12,17 @@ export class GridCreatorService {
   constructor(private cellHandler: CellHandler) { }
 
   createGrid(grid: Grid): Array<Cell> {
-    this.setWidth(grid.width);
-    return this.createCells(grid);
+    document.getElementById("mainGrid")
+      .style
+      .gridTemplateColumns = this.setWidth(grid.width);
+    const cells = this.createCells(grid);
+    this.createHtmlElements(cells, grid);
+
+    return cells;
   }
 
   private createCells(grid: Grid): Array<Cell> {
     const cellsToCreate = grid.height * grid.width;
-    const container = document.getElementById("mainGrid");
     const cells: Array<Cell> = [];
 
     for (let i = 0; i < cellsToCreate; i++) {
@@ -31,25 +35,31 @@ export class GridCreatorService {
         survives: undefined
       };
 
-      const div = document.createElement("div");
-      div.setAttribute("class", "grid-item");
-      div.setAttribute("id", this.cellHandler.getId(cell));
-      div.style.height = Math.round(100 / grid.height) + "vh";
-      container.appendChild(div);
-
       cells.push(cell);
     }
 
     return cells;
   }
 
-  private setWidth(width: number): void {
+  private createHtmlElements(cells: Array<Cell>, grid: Grid): void {
+    const container = document.getElementById("mainGrid");
+
+    cells.forEach(cell => {
+      const div = document.createElement("div");
+
+      div.setAttribute("class", "grid-item");
+      div.setAttribute("id", this.cellHandler.getId(cell));
+      div.style.height = Math.round(100 / grid.height) + "vh";
+
+      container.appendChild(div);
+    });
+  }
+
+  private setWidth(width: number): string {
     let columns = "";
     for (let i = 0; i < width; i++) {
       columns += "auto ";
     }
-    document.getElementById("mainGrid")
-      .style
-      .gridTemplateColumns = columns.trim();
+    return columns.trim();
   }
 }

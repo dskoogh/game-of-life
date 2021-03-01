@@ -12,7 +12,7 @@
         <mat-radio-button class="example-radio-button" *ngFor="let form of formations" [value]="form">
           {{ form }}
         </mat-radio-button>
-        <mat-error *ngIf="error && error.radio">{{ error.radio }}</mat-error>
+        <mat-error *ngIf="error && error.formation">{{ error.formation }}</mat-error>
       </mat-radio-group>
     </div>
 

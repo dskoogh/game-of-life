@@ -1,4 +1,4 @@
-export interface Grid {
+export class Grid {
   height: number;
   width: number;
 }

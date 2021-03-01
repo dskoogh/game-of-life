@@ -15,7 +15,7 @@ export class CellHandler {
 
   constructor() { }
 
-  setCells(grid, createdCells: Array<Cell>): void {
+  setCells(grid: Grid, createdCells: Array<Cell>): void {
     this.grid = grid;
     this.cells = createdCells;
     this.updateIndex();
@@ -78,7 +78,6 @@ export class CellHandler {
 
   updateCells(): void {
     this.applyRules();
-    this.updateIndex();
   }
 
   applyRules(): void {
@@ -157,8 +156,9 @@ export class CellHandler {
   }
 
   private setRandomFormation(): void {
+    const percentage = 20;
     this.cells
-      .filter(c => Math.round(Math.random() * 100) > 20 ? false : true)
+      .filter(c => Math.round(Math.random() * 100) > percentage ? false : true)
       .forEach(cell => cell.alive = true);
   }
 

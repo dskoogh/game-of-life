@@ -1,4 +1,4 @@
-export interface Cell {
+export class Cell {
   id: number;
   alive: boolean;
   column: number;

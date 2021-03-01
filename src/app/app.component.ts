@@ -1,7 +1,5 @@
 import { GridHandlerService } from './services/grid-handler.service';
 import { Formation } from './enums/formation';
-import { CellHandler } from './services/cell-handler.service';
-import { GridCreatorService } from './services/grid-creator.service';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
